@@ -20,12 +20,15 @@ describe('assemblyService', () => {
         });
 
         it('builds a person', () => {
+            //Act
             const result = assemblyService.assemble();
 
+            //Assert
             expect(result instanceof Person).to.be.true;
         });
 
         it('uses their info and their picture', () => {
+            //Assemble
             const name = Math.random();
             const photo = Math.random();
             const shirt = Math.random();
@@ -33,8 +36,11 @@ describe('assemblyService', () => {
             uniformService.getShirt.returns(shirt);
             uniformService.getIdCard.returns(idCard);
 
+            //Act
             const result = assemblyService.assemble(name, photo);
 
+            //Assert
+            expect(result instanceof Person).to.be.true;
             expect(result.idCard).to.equal(idCard);
             expect(result.shirt).to.equal(shirt);
             expect(uniformService.getShirt).to.have.been.calledWithExactly();
