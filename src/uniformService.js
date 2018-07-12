@@ -1,9 +1,9 @@
 const uniformService = {
     getIdCard: (name, photo) => {
         return {
-            name,
+            name: `${name}, Esquire!`,
             photo,
-        }
+        };
     },
     getShirt: () => {
         return {
